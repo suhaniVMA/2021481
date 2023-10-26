@@ -22,7 +22,7 @@ struct node *newNode(int val)
     struct node *temp = (struct node *)malloc(sizeof(struct node));
     if (temp == NULL)
     {
-        printf("memory allocation error...");
+        return;
     }
     else
         temp->data = val;
@@ -59,7 +59,6 @@ struct BigInteger initialize(char *num)
 
     if (!num)
     {
-        printf("Number doesn't exist\n");
         return new;
     }
 
@@ -166,7 +165,6 @@ int compare(struct BigInteger a,struct BigInteger b)//entire function acc to sir
     b.length = calclength(b.head);
     if(a.length < b.length)
     {
-        printf("a len : %d\nb len : %d\n",a.length,b.length);
         return 1;
     }
     if(a.length>b.length)
@@ -202,17 +200,7 @@ void swap(struct node ** n1,struct node ** n2)
 
 struct BigInteger add(struct BigInteger num1, struct BigInteger num2)
 {
-    /*res : type BigInteger not pointer
-    num1  : BigInteger ,1st number not pointer
-    num2  : BigInteger ,2nd number not pointer
-    p1    : node* , 1st number pointer
-    p2    : node* , 2nd number pointer
-    result: node* sum result pointer 
-    sum   : int
-    carry : int
-    d     : int, char to int
-    remaining : node* for bigger ll
-    itr   : node* */
+    
     struct BigInteger res;
     res.length = 0;
     res.head = NULL;
